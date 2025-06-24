@@ -1,10 +1,11 @@
 <?php
 require __DIR__ . '/conect_db.php';
-$sql = "SELECT cpf, nome FROM cad_cpf ORDER BY cpf ASC";
+$sql = "SELECT codigo, nome FROM produtos ORDER BY codigo ASC";
 $result = $dbconn->query($sql);
 
 if ($result === false) {
-    die("Erro na consulta: " . $dbconn->error);}
+    die("Erro na consulta: " . $dbconn->error);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -37,7 +38,7 @@ if ($result === false) {
       <tbody>
         <?php while($row = $result->fetch_assoc()): ?>
           <tr>
-            <td><?= htmlspecialchars($row['cpf']) ?></td>
+            <td><?= htmlspecialchars($row['codigo']) ?></td>
             <td><?= htmlspecialchars($row['nome']) ?></td>
           </tr>
         <?php endwhile; ?>
